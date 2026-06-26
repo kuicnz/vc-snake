@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贪吃蛇 - Snake</title>
+<link rel="stylesheet" href="snake.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <span class="title">贪 吃 蛇</span>
+    <div class="scores">
+      <div class="score-box">
+        <div class="score-label">得分</div>
+        <div class="score-value" id="score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">最高</div>
+        <div class="score-value" id="highScore">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">速度</div>
+        <div class="score-value" id="speedLv">1</div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <div class="mobile-controls">
+    <button class="dir-btn dir-up">&#9650;</button>
+    <button class="dir-btn dir-left">&#9664;</button>
+    <button class="dir-btn dir-right">&#9654;</button>
+    <button class="dir-btn dir-down">&#9660;</button>
+  </div>
+
+  <div class="controls-bar">
+    <button id="btnPause">暂停</button>
+    <button id="btnRestart" class="secondary">重新开始</button>
+  </div>
+  <p class="hint">方向键 / WASD 控制 &nbsp;|&nbsp; 空格键 暂停</p>
+</div>
+
+<script src="snake.js"></script>
+</body>
+</html>

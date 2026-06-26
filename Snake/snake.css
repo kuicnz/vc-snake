@@ -1,0 +1,167 @@
+:root {
+  --bg: #E8E1D8;
+  --panel: #D4CCC3;
+  --card: #DCD5CC;
+  --primary: #7B8C9E;
+  --primary-dark: #5F7081;
+  --accent-green: #A3A98F;
+  --accent-rose: #C2A9A0;
+  --accent-terra: #C19F8F;
+  --accent-blue: #8D9AAD;
+  --text: #5A5350;
+  --text-light: #8A827D;
+  --border: #C8C0B6;
+  --shadow: rgba(90, 83, 80, 0.08);
+  --food: #C27A6A;
+  --snake-head: #6B7F93;
+  --snake-body1: #8194A5;
+  --snake-body2: #93A3B0;
+  --overlay: rgba(232, 225, 216, 0.85);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.container {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 24px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+.scores {
+  display: flex;
+  gap: 24px;
+}
+
+.score-box {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 8px 18px;
+  text-align: center;
+}
+
+.score-label {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.score-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+#gameCanvas {
+  border-radius: 12px;
+  background: var(--panel);
+  display: block;
+  box-shadow: inset 0 2px 12px rgba(90, 83, 80, 0.06);
+}
+
+.controls-bar {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 440px;
+  justify-content: center;
+}
+
+button {
+  background: var(--primary);
+  color: #FAF7F3;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.15s;
+}
+
+button:hover { background: var(--primary-dark); }
+button:active { transform: scale(0.97); }
+button:focus-visible { outline: none; }
+
+button.secondary {
+  background: var(--accent-rose);
+}
+button.secondary:hover {
+  background: #B1968D;
+}
+
+.mobile-controls {
+  display: none;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 6px;
+}
+
+.dir-btn {
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  font-size: 22px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.dir-btn:active { background: var(--accent-blue); }
+.dir-up    { grid-area: up; }
+.dir-down  { grid-area: down; }
+.dir-left  { grid-area: left; }
+.dir-right { grid-area: right; }
+
+.hint {
+  font-size: 13px;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 520px) {
+  .container { padding: 18px; border-radius: 16px; }
+  .title { font-size: 20px; }
+  .scores { gap: 12px; }
+  .score-box { padding: 6px 12px; }
+  .mobile-controls { display: grid; }
+}
